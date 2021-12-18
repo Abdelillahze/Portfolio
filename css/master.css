@@ -68,7 +68,7 @@ a {
           align-items: center;
 }
 
-.flex-column, .contact form, .bulls ul {
+.flex-column, .bulls ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -165,6 +165,10 @@ section {
   padding-bottom: 50px;
 }
 
+section .container {
+  position: relative;
+}
+
 section h1 {
   font-size: 30px;
   margin-bottom: 50px;
@@ -174,8 +178,8 @@ section h1 {
 section .grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(350px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
 
@@ -280,15 +284,30 @@ section .grid .card:hover img:last-child {
 }
 
 .contact {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  width: 100%;
   min-height: 100vh;
   background-color: #303648;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.contact .map {
+  width: 50%;
+  -webkit-transform: translateX(-20px);
+          transform: translateX(-20px);
+  height: 100vh;
+}
+
+.contact .col {
+  padding: 50px;
+  width: 50%;
 }
 
 .contact h1 {
-  text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .contact form {
@@ -298,39 +317,58 @@ section .grid .card:hover img:last-child {
 }
 
 .contact form input {
-  width: 450px;
+  width: 75%;
   height: 50px;
   background-color: transparent;
-  border: 2px solid #1D212B;
+  border: none;
+  border-bottom: 2px solid #aeaeae;
   color: white;
   outline: none;
   padding-left: 10px;
   font-size: 16px;
-  border-radius: 5px;
   margin-bottom: 20px;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .contact form input[type="submit"] {
-  color: white;
-  font-weight: bold;
+  border: 2px solid #aeaeae;
+  border-radius: 5px;
+  color: #c9c9c9;
+  font-weight: 400;
 }
 
 .contact form input[type="submit"]:hover {
   background-color: #3bb2e2;
   cursor: pointer;
   border-color: #3bb2e2;
+  color: white;
 }
 
 .contact form input:focus, .contact form textarea:focus {
   border-color: #3bb2e2;
 }
 
+.contact form input:focus::-webkit-input-placeholder, .contact form textarea:focus::-webkit-input-placeholder {
+  color: white;
+}
+
+.contact form input:focus:-ms-input-placeholder, .contact form textarea:focus:-ms-input-placeholder {
+  color: white;
+}
+
+.contact form input:focus::-ms-input-placeholder, .contact form textarea:focus::-ms-input-placeholder {
+  color: white;
+}
+
+.contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
+  color: white;
+}
+
 .contact form textarea {
-  width: 450px;
+  width: 75%;
   background-color: transparent;
-  border: 2px solid #1D212B;
+  border: 2px solid #aeaeae;
   color: white;
   outline: none;
   padding: 10px;
@@ -339,6 +377,24 @@ section .grid .card:hover img:last-child {
   transition: .5s;
   margin-bottom: 20px;
   border-radius: 5px;
+}
+
+@media (max-width: 992px) {
+  .contact input, textarea {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contact .col, .contact .map {
+    width: 100%;
+  }
 }
 
 footer {
@@ -354,13 +410,9 @@ footer span {
   font-weight: bold;
 }
 
-@media (max-width: 767px) {
-  input, textarea {
-    width: 100%;
-  }
-}
-
 .reveal {
+  -webkit-transition: .5s;
+  transition: .5s;
   opacity: 0;
   -webkit-transform: translateY(20px);
           transform: translateY(20px);
@@ -384,6 +436,8 @@ footer span {
 
 .bulls ul li {
   width: 10px;
+  -webkit-transition: .3s;
+  transition: .3s;
   height: 10px;
   border-radius: 50%;
   border: 2px solid white;
@@ -393,6 +447,12 @@ footer span {
 .bulls ul li.active {
   background-color: #3bb2e2;
   border-color: #3bb2e2;
+}
+
+@media (max-width: 900px) {
+  .bulls {
+    display: none;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -411,5 +471,29 @@ footer span {
 
 html {
   scroll-behavior: smooth;
+}
+
+::-webkit-input-placeholder {
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: #c9c9c9;
+}
+
+:-ms-input-placeholder {
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: #c9c9c9;
+}
+
+::-ms-input-placeholder {
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: #c9c9c9;
+}
+
+::placeholder {
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: #c9c9c9;
 }
 /*# sourceMappingURL=master.css.map */
