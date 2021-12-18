@@ -400,9 +400,10 @@ section .grid .card:hover img:last-child {
 footer {
   height: 50px;
   background-color: #1D212B;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 35px;
+  padding-bottom: 35px;
   text-transform: capitalize;
+  font-size: 17px;
 }
 
 footer span {
